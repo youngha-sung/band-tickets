@@ -1,5 +1,14 @@
-import { Box, Container, Flex, Heading, Icon, Image, Text } from '@chakra-ui/react'
-import { PiCalendarDotsFill, PiMapPinFill } from "react-icons/pi";
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Icon,
+  Image,
+  Text,
+} from "@chakra-ui/react";
+import { PiCalendarDotsLight, PiMapPinLight } from "react-icons/pi";
+import TicketForm from "./TicketForm";
 
 function BandForm({ band }) {
   const options = {
@@ -11,16 +20,16 @@ function BandForm({ band }) {
 
   return (
     <>
-      <Container maxW='container.lg'>
+      <Container maxW='container.lg' py={12}>
         <Box pb={6}>
           <Heading as='h1' size='xl' pb={2}>{band.name}</Heading>
           <Box fontSize='sm' color='gray'>
             <Flex alignItems="center" gap={1}>
-              <Icon as={PiCalendarDotsFill} boxSize={4} />
+              <Icon as={PiCalendarDotsLight} boxSize={4} />
               <Text>{date}</Text>
             </Flex>
             <Flex alignItems="center" gap={1}>
-              <Icon as={PiMapPinFill}  boxSize={4} />
+              <Icon as={PiMapPinLight} boxSize={4} />
               <Text>{band.location}</Text>
             </Flex>
           </Box>
@@ -30,16 +39,10 @@ function BandForm({ band }) {
             <Image src={band.imgUrl} alt={`Image for ${band.name}`} pb={4}/>
             <Text fontSize='sm' color='gray' dangerouslySetInnerHTML={{ __html: band.description_blurb }} />
           </Box>
-          <Box w={[null, '360px']} bg='gray.100' px={6} py={4}>
-            <Heading as='h2' size='lg'>Select Tickets</Heading>
-            {band.ticketTypes ?
-              band.ticketTypes.map((ticket) => (
-                <p>
-                  {ticket.name} - {ticket.description}
-                </p>
-              ))
-              :
-              <Text>There's no ticket available</Text>
+          <Box w={[null, '360px']} bg='gray.50' px={6} pt={6} pb={8}>
+            {band.ticketTypes
+              ? <TicketForm tickets={band.ticketTypes} />
+              : <Text>There is no available tickets.</Text>
             }
           </Box>
         </Flex>
