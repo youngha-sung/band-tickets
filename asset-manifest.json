@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/band-tickets/static/css/main.e6c13ad2.css",
+    "main.js": "/band-tickets/static/js/main.b241faac.js",
+    "index.html": "/band-tickets/index.html",
+    "main.e6c13ad2.css.map": "/band-tickets/static/css/main.e6c13ad2.css.map",
+    "main.b241faac.js.map": "/band-tickets/static/js/main.b241faac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b241faac.js"
+  ]
+}
